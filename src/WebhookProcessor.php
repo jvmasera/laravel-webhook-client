@@ -4,15 +4,17 @@ namespace Spatie\WebhookClient;
 
 use Exception;
 use Illuminate\Http\Request;
-use Spatie\WebhookClient\Events\InvalidSignatureEvent;
-use Spatie\WebhookClient\Exceptions\WebhookFailed;
 use Spatie\WebhookClient\Models\WebhookCall;
+use Spatie\WebhookClient\Exceptions\WebhookFailed;
+use Spatie\WebhookClient\Events\InvalidSignatureEvent;
 
 class WebhookProcessor
 {
-    protected Request $request;
+    /** @var \Illuminate\Http\Request */
+    protected $request;
 
-    protected WebhookConfig $config;
+    /** @var \Spatie\WebhookClient\WebhookConfig */
+    protected $config;
 
     public function __construct(Request $request, WebhookConfig $config)
     {

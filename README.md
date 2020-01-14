@@ -1,7 +1,7 @@
 # Receive webhooks in Laravel apps
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-webhook-client.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-webhook-client)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-webhook-client/run-tests?label=tests)
+[![Build Status](https://img.shields.io/travis/spatie/laravel-webhook-client/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-webhook-client)
 [![StyleCI](https://github.styleci.io/repos/191398424/shield?branch=master)](https://github.styleci.io/repos/191398424)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-webhook-client.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-webhook-client)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-webhook-client.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-webhook-client)
@@ -25,7 +25,7 @@ composer require spatie/laravel-webhook-client
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\WebhookClient\WebhookClientServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Spatie\WebhookClient\WebhookClientServiceProvider"
 ```
 
 This is the contents of the file that will be published at `config/webhook-client.php`:
@@ -132,7 +132,7 @@ This package assumes that an incoming webhook request has a header that can be u
 $computedSignature = hash_hmac('sha256', $request->getContent(), $configuredSigningSecret);
 ```
 
-If the `$computedSignature` does match the value, the request will be [passed to the webhook profile](#determining-which-webhook-requests-should-be-stored-and-processed). If  `$computedSignature` does not match the value in the signature header, the package will respond with a `500` and discard the request.
+If the `$computedSignature` does match the value, the request will be [passed to the webhook profile](#determining-which-webhook-requests-should-be-stored-and-processed). It  `$computedSignature` does not match the value in the signature header, the package will respond with a `500` and discard the request.
 
 ### Creating your own signature validator
 
