@@ -1,5 +1,5 @@
 {
-    "name": "jvmasera/laravel-webhook-client",
+    "name": "spatie/laravel-webhook-client",
     "description": "Receive webhoops in Laravel apps",
     "keywords": [
         "spatie",
