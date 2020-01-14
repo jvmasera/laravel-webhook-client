@@ -57,7 +57,7 @@ class WebhookProcessor
 
             $webhookCall->clearException();
 
-            dispatch($job);
+            $job::dispatchNow($webhookCall);
         } catch (Exception $exception) {
             $webhookCall->saveException($exception);
 
